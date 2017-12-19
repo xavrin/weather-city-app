@@ -1,1 +1,1 @@
-web: gunicorn weather_city.weather_city.wsgi
+web: cd weather_city; gunicorn weather_city.wsgi
