@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block meta %}
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col">
+            {{ weather | safe }}
+        </div>
+        <div id="map" class="col-8">
+        </div>
+        <div class="col">
+        </div>
+        <script>
+        function initMap() {
+            var uluru = {lat: -25.363, lng: 131.044};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: uluru
+            });
+            var geocoder = new google.maps.Geocoder();
+            geocodeAddress(geocoder, map);
+        }
+        function geocodeAddress(geocoder, resultsMap) {
+            var address = "{{ city }}";
+            geocoder.geocode({'address': address}, function(results, status) {
+                if (status === 'OK') {
+                    resultsMap.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: resultsMap,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+        </script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key={{ map_key }}&callback=initMap">
+        </script>
+    </div>
+{% endblock %}

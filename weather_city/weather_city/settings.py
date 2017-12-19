@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main_app',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [
@@ -118,3 +120,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+WEATHER_API_KEY = "1d3c8019e02891bca5496344620d2741"
+MAPS_API_KEY = "AIzaSyCmfsC535NAcT0lIhSku-bbww6rUiYs9Sk"

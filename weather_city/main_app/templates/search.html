@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block content %}
+<div class="row">
+    <div class="col">
+        <h1>Check the weather for your country!</h1>
+    </div>
+</div>
+<div class="row">
+    <form action="{% url 'search' %}" method="post">
+        {% csrf_token %}
+        {{ form.country|bootstrap }}
+        <input type="submit" value="Submit" class="btn btn-default"/>
+    </form>
+</div>
+{% endblock %}:w
+
