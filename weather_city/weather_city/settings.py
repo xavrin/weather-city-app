@@ -123,3 +123,6 @@ STATIC_URL = '/static/'
 
 WEATHER_API_KEY = "1d3c8019e02891bca5496344620d2741"
 MAPS_API_KEY = "AIzaSyCmfsC535NAcT0lIhSku-bbww6rUiYs9Sk"
+
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
